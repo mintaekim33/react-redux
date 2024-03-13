@@ -24,7 +24,7 @@ const Counter = () => {
         type="text"
         value={incrementAmount}
         onChange={(e) => {
-          setIncrementAmount.target.value;
+          setIncrementAmount(e.target.value);
         }}
       />
 

@@ -20,6 +20,6 @@ const postsSlice = createSlice({
   reducers: {},
 });
 
-export const seelctAllPosts = (state) => state.posts;
+export const selectAllPosts = (state) => state.posts;
 
 export default postsSlice.reducer;

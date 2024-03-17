@@ -18,7 +18,8 @@ const AddPostForm = () => {
           name="postTitle"
           value={title}
           onChange={onTitleChanged}
-        ></input>
+        />
+        <button type="button">Save Post</button>
       </form>
     </section>
   );

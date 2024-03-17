@@ -12,4 +12,3 @@ function App() {
 }
 
 export default App;
-// course 27:42

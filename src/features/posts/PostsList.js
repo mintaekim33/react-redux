@@ -20,5 +20,3 @@ const PostsList = () => {
 };
 
 export default PostsList;
-
-// react redux course ~26:10

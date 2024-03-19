@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { nanoid } from "@reduxjs/toolkit";
+
+import { postAdded } from "./postsSlice";
 
 const AddPostForm = () => {
   const [title, setTitle] = useState(""); // temp state just for this component
@@ -6,6 +10,21 @@ const AddPostForm = () => {
 
   const onTitleChanged = (e) => setTitle(e.target.value);
   const onContentChanged = (e) => setContent(e.target.value);
+
+  const onSavePostClicked = () => {
+    if (title && content) {
+      dispatchEvent(
+        postAdded({
+          id: nanoid(),
+          title,
+          content,
+        })
+      );
+
+      setTitle("");
+      setContent("");
+    }
+  };
 
   return (
     <section>

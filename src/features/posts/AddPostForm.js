@@ -5,6 +5,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import { postAdded } from "./postsSlice";
 
 const AddPostForm = () => {
+  const dispatch = useDispatch();
   const [title, setTitle] = useState(""); // temp state just for this component
   const [content, setContent] = useState("");
 
@@ -13,7 +14,7 @@ const AddPostForm = () => {
 
   const onSavePostClicked = () => {
     if (title && content) {
-      dispatchEvent(
+      dispatch(
         postAdded({
           id: nanoid(),
           title,
@@ -37,6 +38,13 @@ const AddPostForm = () => {
           name="postTitle"
           value={title}
           onChange={onTitleChanged}
+        />
+        <label htmlFor="postContent">Content:</label>
+        <textarea
+          id="postContent"
+          name="postContent"
+          value={content}
+          onChange={onContentChanged}
         />
         <button onClick={onSavePostClicked} type="button">
           Save Post

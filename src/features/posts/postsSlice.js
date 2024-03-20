@@ -19,7 +19,7 @@ const postsSlice = createSlice({
   initialState,
   reducers: {
     // create a reducer function to handle the data that we submit
-    possAdded(state, action) {
+    postAdded(state, action) {
       state.push(action.payload);
     },
   },

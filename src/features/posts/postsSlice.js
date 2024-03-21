@@ -1,5 +1,5 @@
 // slice - a place to divide up the state
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = [
   {
@@ -19,8 +19,19 @@ const postsSlice = createSlice({
   initialState,
   reducers: {
     // create a reducer function to handle the data that we submit
-    postAdded(state, action) {
-      state.push(action.payload);
+    postAdded: {
+      reducer(state, action) {
+        state.push(action.payload);
+      },
+      prepare(title, content) {
+        return {
+          payload: {
+            id: nanoid(),
+            title,
+            content,
+          },
+        };
+      },
     },
   },
 });

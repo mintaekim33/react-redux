@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { nanoid } from "@reduxjs/toolkit";
+import { useDispatch, useSelector } from "react-redux";
 
 import { postAdded } from "./postsSlice";
+import { selectAllUsers } from "../users/usersSlice";
 
 const AddPostForm = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState(""); // temp state just for this component
   const [content, setContent] = useState("");
+  const [userid, setUserid] = useState("");
 
   const onTitleChanged = (e) => setTitle(e.target.value);
   const onContentChanged = (e) => setContent(e.target.value);
